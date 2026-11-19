@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom';
+import ThreeDCard from '../components/ui/ThreeDCard';
+import ThreeDButton from '../components/ui/ThreeDButton';
 import { Award, CheckCircle2, Globe2, Clock } from 'lucide-react';
 
 export default function LanguagesPage() {
@@ -67,10 +69,10 @@ export default function LanguagesPage() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 space-y-12 font-sans">
-      {/* Page Title Header */}
-      <div className="bg-[#0b3b8c] text-white rounded-3xl p-8 sm:p-12 shadow-xl">
-        <div className="max-w-3xl space-y-4">
-          <div className="inline-flex items-center gap-2 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+      {/* Page Title Header with 3D Depth */}
+      <div className="bg-[#0b3b8c] text-white rounded-3xl p-8 sm:p-12 shadow-2xl relative overflow-hidden border border-blue-800">
+        <div className="max-w-3xl space-y-4 relative z-10">
+          <div className="inline-flex items-center gap-2 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-md">
             <Globe2 className="w-4 h-4" />
             Cadre Européen CECRL
           </div>
@@ -83,11 +85,11 @@ export default function LanguagesPage() {
         </div>
       </div>
 
-      {/* Languages List */}
+      {/* Languages List with Interactive 3D Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {languages.map((lang) => (
-          <div key={lang.id} className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
-            <div className="space-y-4">
+          <ThreeDCard key={lang.id} depth={20} className="bg-white border border-slate-200 p-8">
+            <div className="space-y-4 flex-1">
               <div className="flex flex-wrap items-center justify-between gap-2">
                 <span className={`text-xs font-bold px-3 py-1 rounded-full border ${lang.badgeColor}`}>
                   {lang.badge}
@@ -123,12 +125,9 @@ export default function LanguagesPage() {
             </div>
 
             <div className="mt-8 pt-4 border-t border-slate-200 flex items-center justify-between">
-              <Link
-                to="/contact"
-                className="bg-[#0b3b8c] hover:bg-blue-800 text-white font-bold text-xs px-4 py-2.5 rounded-xl shadow transition-colors"
-              >
+              <ThreeDButton to="/contact" variant="primary">
                 S'inscrire à ce cours
-              </Link>
+              </ThreeDButton>
               <Link
                 to="/certificates"
                 className="text-xs font-bold text-red-600 hover:underline flex items-center gap-1"
@@ -137,7 +136,7 @@ export default function LanguagesPage() {
                 Obtenir une attestation
               </Link>
             </div>
-          </div>
+          </ThreeDCard>
         ))}
       </div>
     </div>

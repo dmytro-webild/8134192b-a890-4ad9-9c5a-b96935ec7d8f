@@ -9,15 +9,15 @@
 
 /* webild:theme-ai */
 :root {
-  --primary-cta: #232b3d;
-  --primary-cta-text: #fdffff;
-  --secondary-cta: #91d5ff;
+  --primary-cta: #0b3b8c;
+  --primary-cta-text: #ffffff;
+  --secondary-cta: #e2e8f0;
   --secondary-cta-text: #0f172a;
   --background-accent: #dc2626;
 
   --background: #f8fafc;
   --foreground: #0f172a;
-  --card: #fdffff;
+  --card: #ffffff;
   --card-foreground: var(--foreground);
   --popover: var(--card);
   --popover-foreground: var(--foreground);
@@ -25,16 +25,16 @@
   --primary-foreground: var(--primary-cta-text);
   --secondary: var(--secondary-cta);
   --secondary-foreground: var(--secondary-cta-text);
-  --muted: #fdffff;
-  --muted-foreground: #4c5464;
+  --muted: #f1f5f9;
+  --muted-foreground: #475569;
   --accent: var(--background-accent);
-  --accent-foreground: #edfbff;
-  --deep: #1e3a8a;
-  --deep-foreground: #fdffff;
-  --destructive: #e5484d;
-  --destructive-foreground: #161616;
-  --border: #e2e6e9;
-  --input: #e2e6e9;
+  --accent-foreground: #ffffff;
+  --deep: #062459;
+  --deep-foreground: #ffffff;
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  --border: #cbd5e1;
+  --input: #cbd5e1;
   --ring: var(--primary-cta);
 
   --font-heading: "Inter", "Inter Display", ui-sans-serif, system-ui, sans-serif;
@@ -461,5 +461,27 @@
   .btn-secondary::before,
   .btn-link {
     transition: none;
+  }
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .printable-certificate, .printable-certificate * {
+    visibility: visible;
+  }
+  .printable-certificate {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-shadow: none !important;
+    border: none !important;
+  }
+  .no-print {
+    display: none !important;
   }
 }
